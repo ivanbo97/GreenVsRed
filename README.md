@@ -1,9 +1,10 @@
 # 1. class Grid
 
-      This class implements the idea of a 2D grid by having a two-dimensional array of characters . The grid's width and height is
-    provided by the console input and its correctness is secured by the methods from class CorrectNumerChecker. By method:
-    void cellForSearching (), the user can provide coordinates of the cell which content is going to be examined during
-    the generations. There is also a method for printing out the grid - void printGridContent().
+       This class implements the idea of a 2D grid by having a two-dimensional array of characters .
+      The grid's width and height is provided by the console input and its correctness is secured
+      by the methods from class CorrectNumerChecker. By method: void cellForSearching (), the user
+      can provide coordinates of the cell which content is going to be examined during the generations.
+      There is also a method for printing out the grid - void printGridContent().
 
 # 2. class GridGenerator
 
