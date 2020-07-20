@@ -22,4 +22,5 @@
     hand, if the current cell was green and had 0,1,4,5,7 or 8 green neighbours, in the next generation its color should become red.
     So we have to save current cell's coordinates and future color by creating an instance of class SingleCell and add its reference
     to an ArrayList of cells (cellsForConversion) which are going to have their colored changed in the next generation.
-    After iterating through each cell of the grid we can update the content of the grid by calling method: void updateGrid (). Final result is displayed by calling  method:void displayResult ().
+    After iterating through each cell of the grid we can update the content of the grid by calling method: void updateGrid ().
+    Final result is displayed by calling  method:void displayResult ().
