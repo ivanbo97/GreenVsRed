@@ -30,7 +30,7 @@
      Objects of this class represent a single cell from the grid with corresponding x, y coordiantes and color;
      
 # 4. class CorrectNumberChecker
-     We should gurantee that the input of the user is correct and our game will not crash. Method: boolean check (int inputNumber) assures
-    that the provided number is in the specified range. Method: int detailedChecks (), catches exceptions caused by wrong input from the user
-    related to entering letters or words where integer numbers are expected.
+     We should gurantee that the input of the user is correct and our game will not crash. Method: boolean check (int inputNumber)
+     assures that the provided number is in the specified range. Method: int detailedChecks (), catches exceptions caused by wrong
+     input from the user related to entering letters or words where integer numbers are expected.
     
