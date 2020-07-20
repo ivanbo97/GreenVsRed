@@ -10,7 +10,7 @@ public class GridGenerator {
     private ArrayList <SingleCell> cellsForConversion;
     private int timesHasBeenGreen;
     private int timesHasBeenRed;
-    int greenNeighbours ;
+    private int greenNeighbours ;
 
 
     public GridGenerator(Grid grid) {
@@ -59,8 +59,6 @@ public class GridGenerator {
                         isInputCorrect = false;
                     }
                 }while (!isInputCorrect);
-
-
             }
         }
     }
@@ -88,8 +86,6 @@ public class GridGenerator {
         char [][] gridContent = grid.getGridContent();
         int xCoordinateOfSearchCell = grid.getxCoordinateInput();
         int yCoordinateOfSearchCell = grid.getyCoordinateInput();
-
-        char initialCellValue = grid.getCellValue(xCoordinateOfSearchCell,yCoordinateOfSearchCell);
         int gridHeight = grid.getHeight();
         int gridWidth = grid.getWidth();
         char checkedCellVal;
@@ -114,10 +110,9 @@ public class GridGenerator {
                     hasLeftNeighbour = false;
                     hasRightNeighbour = false;
                     checkedCellVal = gridContent[rowIdx][colIdx];
-
                     //Checking the neighbouring cells
 
-                    //checking if there are neighbours to the left
+                    //checking if there is a neighbour to the right
                     if (colIdx+1 <= gridWidth-1)
                     {
                         hasRightNeighbour =true;
@@ -125,8 +120,7 @@ public class GridGenerator {
                         checkForGreenNeighbours(currentCellVal);
 
                     }
-
-                    //checking if there are neighbours to the right
+                    //checking if there is a neighbour to the left
                     if (colIdx-1>=0)
                     {
                         hasLeftNeighbour = true;
@@ -151,22 +145,21 @@ public class GridGenerator {
                             currentCellVal = gridContent[rowIdx-1][colIdx+1];
                             checkForGreenNeighbours(currentCellVal);
                         }
-
                          /*If there was a neighbour to the left,
                         there will be also a neighbour to the upper left diagonal*/
                         if(hasLeftNeighbour)
                         {
                             //Upper left diagonal
                             currentCellVal = gridContent[rowIdx-1][colIdx-1];
-                            checkForGreenNeighbours(currentCellVal);;
+                            checkForGreenNeighbours(currentCellVal);
                         }
-
                     }
+
+                    //Checking if there are lower neighbours
                     if(rowIdx+1 <= gridHeight -1)
                     {
                         //Lower neighbouring cell
                         currentCellVal = gridContent[rowIdx+1][colIdx];
-
                         if(currentCellVal == '1')
                             greenNeighbours++;
                         if (hasRightNeighbour)
@@ -175,7 +168,6 @@ public class GridGenerator {
                             currentCellVal = gridContent[rowIdx+1][colIdx+1];
                             checkForGreenNeighbours(currentCellVal);
                         }
-
                         if(hasLeftNeighbour)
                         {
                             //Lower left diagonal
@@ -183,7 +175,6 @@ public class GridGenerator {
                             checkForGreenNeighbours(currentCellVal);
 
                         }
-
                     }
 
                     if(checkedCellVal == '0')
@@ -198,12 +189,8 @@ public class GridGenerator {
                         if (greenNeighbours!=2 && greenNeighbours!=3 && greenNeighbours!=6)
                             cellsForConversion.add(new SingleCell(rowIdx,colIdx,'0'));
                     }
-
-
                 }
-
             }
-
             /*Prepare the grid for next generation by updating the values and
               clearing the content of the array list*/
             updateGrid();
@@ -220,8 +207,8 @@ public class GridGenerator {
         //Loop through the cells which should be inverted
         for (SingleCell cell : cellsForConversion)
         {
-            int rowIdx = cell.getRowIdx();
-            int colIdx = cell.getColIdx();
+            int rowIdx = cell.getyCoordinate();
+            int colIdx = cell.getxCoordinate();
             gridContent[rowIdx][colIdx] = cell.getColor();
         }
     }
