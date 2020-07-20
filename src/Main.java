@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Main {
 
     public static void main(String[] args) {
@@ -11,8 +9,5 @@ public class Main {
         grid.cellForSearching();
         grid.getGridGenerator().setNumberOfGenerations();
         grid.getGridGenerator().startGenerations();
-
-
-
     }
 }
