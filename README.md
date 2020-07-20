@@ -4,7 +4,7 @@ This class implements the idea of a 2D grid by having a two-dimensional array of
 correctness is secured by the methods from class CorrectNumerChecker. By method: void cellForSearching (), the user can provide coordinates of the cell which content
 is going to be examined during the generations. There is also a method for printing out the grid - void printGridContent().
 
-# 1. class GridGenerator
+# 2. class GridGenerator
 
   This class encapsulates functionality related to the primary generation of the grid. The main algorithm is implemented in void generationZero () method. The initial content is
 provided by the console input. The number of subsequent generations is also specified by the user. Each generation begins with checking whether the chosen cell is red or
