@@ -31,8 +31,14 @@
      Objects of this class represent a single cell from the grid with corresponding x, y coordiantes and color.
      
 # 4. class CorrectNumberChecker
-     We should gurantee that the input of the user is correct and our game will not crash. Method:
+      We should gurantee that the input of the user is correct and our game will not crash. Method:
      boolean check (int inputNumber) assures that the provided number is in the specified range.
      Method: int detailedChecks (), catches exceptions caused by wrong input from the user related
      to entering letters or words where integer numbers are expected.
     
+# 5. class Main
+   
+     In the main method we initialize the grid with maximum size 1000 and set its width and height with values provided
+    by the user. The generation zero values are then accepted together with the coordinates of the observed cell and 
+    the total number of generations. The rules for next generation of the grid are implemented in method:
+    void startGenerations () from class GridGenerator.
