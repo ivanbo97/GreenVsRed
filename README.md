@@ -27,7 +27,7 @@
     Final result is displayed by calling  method:void displayResult ().
 
 # 3. class SingleCell
-     Objects of this class represent a single cell from the grid with corresponding x, y coordiantes and color;
+     Objects of this class represent a single cell from the grid with corresponding x, y coordiantes and color.
      
 # 4. class CorrectNumberChecker
      We should gurantee that the input of the user is correct and our game will not crash. Method:
