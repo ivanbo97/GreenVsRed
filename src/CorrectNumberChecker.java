@@ -16,7 +16,6 @@ public class CorrectNumberChecker {
 
     }
 
-
     public boolean check (int inputNumber)
     {
         if(inputNumber < lowerLimit || inputNumber >= upperLimit)
