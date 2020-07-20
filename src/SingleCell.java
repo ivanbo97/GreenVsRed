@@ -1,21 +1,21 @@
 public class SingleCell {
 
-    private int rowIdx;
-    private int colIdx;
+    private int xCoordinate;
+    private int yCoordinate;
     private char color;
 
-    public SingleCell(int rowIdx, int colIdx, char color) {
-        this.rowIdx = rowIdx;
-        this.colIdx = colIdx;
+    public SingleCell(int yCoordinate, int xCoordinate, char color) {
+        this.xCoordinate = xCoordinate;
+        this.yCoordinate = yCoordinate;
         this.color = color;
     }
 
-    public int getRowIdx() {
-        return rowIdx;
+    public int getxCoordinate() {
+        return xCoordinate;
     }
 
-    public int getColIdx() {
-        return colIdx;
+    public int getyCoordinate() {
+        return yCoordinate;
     }
 
     public char getColor() {
