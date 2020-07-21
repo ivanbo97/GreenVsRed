@@ -52,7 +52,8 @@ public class Grid {
     {
 
         CorrectNumberChecker checker = new CorrectNumberChecker();
-        //check for correctness of row input
+        
+        //check for correctness of row input, iterval: x<=y<1000
         checker.setLowerLimit(0);
         checker.setUpperLimit(height);
         System.out.println("Enter x coordinate value of a cell (range is [0," + height + ") )");
