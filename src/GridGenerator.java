@@ -25,7 +25,7 @@ public class GridGenerator {
         boolean isInputCorrect ;
         int enteredNumber;
 
-        //User should enter only zeroeas and ones interval is [0,2)
+        //User should enter only zeroes and ones. The interval is [0,2)
         CorrectNumberChecker checker = new CorrectNumberChecker(0,2);
 
         int gridHeight = grid.getHeight();
@@ -204,12 +204,13 @@ public class GridGenerator {
     public void updateGrid ()
     {
         char [][] gridContent = grid.getGridContent();
+        int rowIdx , colIdx;
         //Loop through the cells which should be inverted
         for (SingleCell cell : cellsForConversion)
         {
-            int rowIdx = cell.getyCoordinate();
-            int colIdx = cell.getxCoordinate();
-            gridContent[rowIdx][colIdx] = cell.getColor();
+             rowIdx = cell.getyCoordinate();
+             colIdx = cell.getxCoordinate();
+             gridContent[rowIdx][colIdx] = cell.getColor();
         }
     }
 
