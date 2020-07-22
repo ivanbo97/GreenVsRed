@@ -43,12 +43,13 @@ public class CorrectNumberChecker {
                 isInputCorrect = check(enteredNum);
                 if(!isInputCorrect)
                     System.out.println("The entered number is out of the specified range! Please try again!");
+                //Skipping enter key press
                 scan.nextLine();
 
 
             }catch (NoSuchElementException e)
             {
-                //Reading enter key press from buffer
+                //Skipping enter key press
                 scan.nextLine();
                 System.out.println("Invalid input! Please try again!");
                 isInputCorrect = false;
