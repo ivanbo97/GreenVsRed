@@ -7,7 +7,7 @@ public class GridGenerator {
     private Grid grid;
     private Scanner scan = new Scanner(System.in);
     private int numberOfGenerations;
-    private ArrayList <SingleCell> cellsForConversion;
+    private ArrayList <SingleCell> cellsForConversion; //Will store refernces to cells that are going to have their color converted in the next generation
     private int timesHasBeenGreen;
     private int timesHasBeenRed;
     private int greenNeighbours ;
@@ -49,11 +49,11 @@ public class GridGenerator {
                             else
                                 gridArray[i][j] = '0';
                         }
-                        //Reading enter key press from buffer
+                        //Skipping enter key pressed
                         scan.nextLine();
 
                     } catch (NoSuchElementException e) {
-                        //Reading enter key press from buffer
+                        //Skipping enter key pressed
                         scan.nextLine();
                         System.out.println("Invalid input! Please try again!");
                         isInputCorrect = false;
@@ -112,7 +112,7 @@ public class GridGenerator {
                     checkedCellVal = gridContent[rowIdx][colIdx];
                     //Checking the neighbouring cells
 
-                    //checking if there is a neighbour to the right
+                    //Checking if there is a neighbour to the right
                     if (colIdx+1 <= gridWidth-1)
                     {
                         hasRightNeighbour =true;
@@ -179,20 +179,25 @@ public class GridGenerator {
 
                     if(checkedCellVal == '0')
                     {
-                        //Save cells which values should be inverted
+                        /*If the currently checked cell is red and has 3 or 6
+                         green neighbours, we should convert its color to green*/
+                        
                         if (greenNeighbours == 3 || greenNeighbours == 6)
                             cellsForConversion.add (new SingleCell(rowIdx,colIdx,'1'));
 
                     }
                     else
                     {
+                           /*If the currently checked cell is green and has number of green neighbours
+                           different from 2,3 or 6, we should convetr its color to red*/
+                        
                         if (greenNeighbours!=2 && greenNeighbours!=3 && greenNeighbours!=6)
                             cellsForConversion.add(new SingleCell(rowIdx,colIdx,'0'));
                     }
                 }
             }
             /*Prepare the grid for next generation by updating the values and
-              clearing the content of the array list*/
+              clearing the content of the ArrayList*/
             updateGrid();
             cellsForConversion.clear();
 
@@ -205,7 +210,7 @@ public class GridGenerator {
     {
         char [][] gridContent = grid.getGridContent();
         int rowIdx , colIdx;
-        //Loop through the cells which should be inverted
+        //Iterate through the cells which should be inverted
         for (SingleCell cell : cellsForConversion)
         {
              rowIdx = cell.getyCoordinate();
