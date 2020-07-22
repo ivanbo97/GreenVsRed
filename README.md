@@ -20,7 +20,7 @@ There is also a method for printing out the grid - void printGridContent().
   of subsequent generations is also specified by the user. Each generation begins with checking whether the chosen
   cell is red or green. Then we should iterate through each grid's cell and check its neighbouring cells.
   The current value of the cell is stored in the variable - checkedCellVal.
-   First we check if we have a neighbour to the right or left, increase the green counter and raise a flag accordingly.
+      First we check if we have a neighbour to the right or left, increase the green counter and raise a flag accordingly.
  After that we can check whether there is a neighbouring cell above the current cell and in case it is green we increase 
  the counter. Being in the upper row we have two potential neighbours - to the upper left  and right diagonals.
  Here the raised flags will help us decide if we should check right, left or both diagonals. Then we can can move
