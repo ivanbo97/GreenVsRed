@@ -1,7 +1,7 @@
 # 1. class Main
 
 
-    In the main method we initialize the grid with maximum size 1000 and set its width and height with values provided
+   In the main method we initialize the grid with maximum size 1000 and set its width and height with values provided
 by the user. The generation zero values are then accepted together with the coordinates of the observed cell and 
 the total number of generations. The rules for the next generation of the grid are implemented in method:
 void startGenerations () from class GridGenerator.
