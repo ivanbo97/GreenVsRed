@@ -1,13 +1,13 @@
 # 1. class Main
    
-  In the main method we initialize the grid with maximum size 1000 and set its width and height with values provided
+   In the main method we initialize the grid with maximum size 1000 and set its width and height with values provided
  by the user. The generation zero values are then accepted together with the coordinates of the observed cell and 
  the total number of generations. The rules for the next generation of the grid are implemented in method:
  void startGenerations () from class GridGenerator.
     
 # 2. class Grid
 
-   This class implements the idea of a 2D grid by having a two-dimensional array of characters .
+  This class implements the idea of a 2D grid by having a two-dimensional array of characters .
 The grid's width and height is provided by the console input and its correctness is secured
 by the methods from class CorrectNumerChecker. By method: void cellForSearching (), the user
 can provide coordinates of the cell which content is going to be examined during the generations.
