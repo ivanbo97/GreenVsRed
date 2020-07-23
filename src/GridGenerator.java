@@ -7,7 +7,7 @@ public class GridGenerator {
     private Grid grid;
     private Scanner scan = new Scanner(System.in);
     private int numberOfGenerations;
-    private ArrayList <SingleCell> cellsForConversion; //Will store refernces to cells that are going to have their color converted in the next generation
+    private ArrayList <SingleCell> cellsForConversion;
     private int timesHasBeenGreen;
     private int timesHasBeenRed;
     private int greenNeighbours ;
@@ -25,7 +25,7 @@ public class GridGenerator {
         boolean isInputCorrect ;
         int enteredNumber;
 
-        //User should enter only zeroes and ones. The interval is [0,2)
+        //User should enter only zeroes and ones interval is [0,2)
         CorrectNumberChecker checker = new CorrectNumberChecker(0,2);
 
         int gridHeight = grid.getHeight();
@@ -35,30 +35,12 @@ public class GridGenerator {
         {
             for (int j=0;j<gridWidth;j++)
             {
-                do {
-                    System.out.println("grid[" + i + "][" + j + "] = ");
-                    try {
-                        enteredNumber = (char) scan.nextInt();
-                        isInputCorrect = checker.check(enteredNumber);
-                        if(!isInputCorrect)
-                            System.out.println("The entered number is out of the specified range! Please try again!");
-                        else
-                        {
-                            if(enteredNumber == 1)
-                                gridArray[i][j] = '1';
-                            else
-                                gridArray[i][j] = '0';
-                        }
-                        //Skipping enter key pressed
-                        scan.nextLine();
-
-                    } catch (NoSuchElementException e) {
-                        //Skipping enter key pressed
-                        scan.nextLine();
-                        System.out.println("Invalid input! Please try again!");
-                        isInputCorrect = false;
-                    }
-                }while (!isInputCorrect);
+                System.out.println("grid[" + i + "][" + j + "] = ");
+                enteredNumber = checker.detailedChecks();
+                if(enteredNumber == 1)
+                    gridArray[i][j] = '1';
+                else
+                    gridArray[i][j] = '0';
             }
         }
     }
@@ -112,7 +94,7 @@ public class GridGenerator {
                     checkedCellVal = gridContent[rowIdx][colIdx];
                     //Checking the neighbouring cells
 
-                    //Checking if there is a neighbour to the right
+                    //checking if there is a neighbour to the right
                     if (colIdx+1 <= gridWidth-1)
                     {
                         hasRightNeighbour =true;
@@ -179,25 +161,20 @@ public class GridGenerator {
 
                     if(checkedCellVal == '0')
                     {
-                        /*If the currently checked cell is red and has 3 or 6
-                         green neighbours, we should convert its color to green*/
-                        
+                        //Save cells which values should be inverted
                         if (greenNeighbours == 3 || greenNeighbours == 6)
                             cellsForConversion.add (new SingleCell(rowIdx,colIdx,'1'));
 
                     }
                     else
                     {
-                           /*If the currently checked cell is green and has number of green neighbours
-                           different from 2,3 or 6, we should convetr its color to red*/
-                        
                         if (greenNeighbours!=2 && greenNeighbours!=3 && greenNeighbours!=6)
                             cellsForConversion.add(new SingleCell(rowIdx,colIdx,'0'));
                     }
                 }
             }
             /*Prepare the grid for next generation by updating the values and
-              clearing the content of the ArrayList*/
+              clearing the content of the array list*/
             updateGrid();
             cellsForConversion.clear();
 
@@ -209,13 +186,12 @@ public class GridGenerator {
     public void updateGrid ()
     {
         char [][] gridContent = grid.getGridContent();
-        int rowIdx , colIdx;
-        //Iterate through the cells which should be inverted
+        //Loop through the cells which should be inverted
         for (SingleCell cell : cellsForConversion)
         {
-             rowIdx = cell.getyCoordinate();
-             colIdx = cell.getxCoordinate();
-             gridContent[rowIdx][colIdx] = cell.getColor();
+            int rowIdx = cell.getyCoordinate();
+            int colIdx = cell.getxCoordinate();
+            gridContent[rowIdx][colIdx] = cell.getColor();
         }
     }
 
